@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISH Connect - What We Do</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Electrolize&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 10px rgba(0, 212, 255, 0.3); }
+      50% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.6); }
+    }
+    body {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      font-family: 'Electrolize', sans-serif;
+      color: #e0e0e0;
+      overflow-x: hidden;
+      position: relative;
+    }
+    .tech-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      opacity: 0.1;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 30%, rgba(0, 212, 255, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 50% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 20%);
+    }
+    .header-glow {
+      text-shadow: 0 0 10px rgba(0, 212, 255, 0.7);
+    }
+    .box-glow {
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+    .box-glow:hover {
+      box-shadow: 0 0 25px rgba(0, 212, 255, 0.5);
+      transform: translateY(-5px);
+    }
+    .underline-tech {
+      position: relative;
+      display: inline-block;
+    }
+    .underline-tech::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #00d4ff, transparent);
+      border-radius: 3px;
+    }
+    .service-card {
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 212, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    .service-card:hover {
+      border-color: rgba(0, 212, 255, 0.3);
+      background: rgba(15, 23, 42, 0.9);
+    }
+    .icon-container {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 212, 255, 0.1);
+      border-radius: 12px;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+    }
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+    .pulse {
+      animation: pulse 3s ease-in-out infinite;
+    }
+    .glow {
+      animation: glow 4s ease-in-out infinite;
+    }
+    .circuit-path {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: dash 10s linear forwards infinite;
+    }
+    @keyframes dash {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #00d4ff, #00ff9d);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+  <div class="tech-bg"></div>
+
+  <!-- Animated circuit lines -->
+  <svg class="absolute top-0 left-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+    <path class="circuit-path" d="M100,50 Q200,100 300,50 T500,50" fill="none" stroke="rgba(0,212,255,0.1)" stroke-width="2"/>
+    <path class="circuit-path" d="M800,150 Q700,200 600,150 T400,150" fill="none" stroke="rgba(0,212,255,0.1)" stroke-width="2"/>
+    <path class="circuit-path" d="M200,300 Q300,250 400,300 T600,300" fill="none" stroke="rgba(0,212,255,0.1)" stroke-width="2"/>
+    <path class="circuit-path" d="M700,400 Q600,350 500,400 T300,400" fill="none" stroke="rgba(0,212,255,0.1)" stroke-width="2"/>
+  </svg>
+
+  <header class="container mx-auto px-6 py-8 flex items-center justify-between">
+    <div class="flex items-center space-x-4">
+      <div class="icon-container glow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+      </div>
+      <h1 class="text-2xl font-bold font-['Orbitron'] gradient-text">ISH CONNECT</h1>
+    </div>
+    <nav class="hidden md:flex space-x-8">
+      <a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors">Home</a>
+      <a href="#" class="text-cyan-400 font-medium">What We Do</a>
+      <a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors">Our Work</a>
+      <a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors">Contact</a>
+    </nav>
+    <button class="md:hidden text-gray-300">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </header>
+
+  <main class="container mx-auto px-4 sm:px-8 py-8">
+    <div class="max-w-4xl mx-auto text-center mb-16">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-['Orbitron'] text-white mb-6">
+        <span class="underline-tech">WHAT WE DO</span>
+      </h1>
+      <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+        We bridge the gap between technology and education, delivering innovative solutions that empower organizations to thrive in the digital age.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-12">
+      <!-- Digital Learning -->
+      <div class="service-card rounded-xl p-8 box-glow">
+        <div class="flex items-start space-x-6">
+          <div class="icon-container floating">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="text-2xl font-['Orbitron'] font-bold text-cyan-400 mb-4">Digital Learning</h2>
+            <ul class="space-y-3 text-gray-300">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mt-0.5 mr-3 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Interactive curricula, question banks, timed assessments with analytics dashboards</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mt-0.5 mr-3 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Role-based access for students/teachers with content pipelines for video and notes</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mt-0.5 mr-3 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Gamified learning experiences with progress tracking and certification</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Consulting & Enablement -->
+      <div class="service-card rounded-xl p-8 box-glow">
+        <div class="flex items-start space-x-6">
+          <div class="icon-container pulse">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="text-2xl font-['Orbitron'] font-bold text-cyan-400 mb-4">Consulting & Enablement</h2>
+            <ul class="space-y-3 text-gray-300">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mt-0.5 mr-3 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Architecture reviews, DevOps (CI/CD, GitHub Actions), code quality, and team upskilling</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mt-0.5 mr-3 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Roadmapping and co-building with client teams to accelerate digital transformation</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mt-0.5 mr-3 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Technical leadership and best practices implementation for sustainable growth</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Engineering -->
+      <div class="service-card rounded-xl p-8 box-glow">
+        <div class="flex items-start space-x-6">
+          <div class="icon-container floating">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <div>
+            <h2 class="text-2xl font-['Orbitron'] font-bold text-cyan-400 mb-4">Product Engineering</h2>
+            <ul class="space-y-3 text-gray-300">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mt-0.5 mr-3 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Web & mobile applications using React (Vite), Node.js/Express, Python (Flask/Django), PHP/Laravel</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mt-0.5 mr-3 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>API design, integrations, secure backends (MySQL/MongoDB), and cloud-ready deployments</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mt-0.5 mr-3 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Progressive Web Apps (PWAs) and cross-platform solutions for maximum reach</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Media & Content Solutions -->
+      <div class="service-card rounded-xl p-8 box-glow">
+        <div class="flex items-start space-x-6">
+          <div class="icon-container pulse">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              <path d="M14.05 2a9 9 0 0 1 8 7.94"></path>
+              <path d="M14.05 6A5 5 0 0 1 18 10"></path>
+            </svg>
+          </div>
+          <div>
+            <h2 class="text-2xl font-['Orbitron'] font-bold text-cyan-400 mb-4">Social Media & Content</h2>
+            <ul class="space-y-3 text-gray-300">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mt-0.5 mr-3 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Strategic social media campaigns to amplify brand presence and engagement</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mt-0.5 mr-3 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Content creation and management for schools, brands, and communities</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 mt-0.5 mr-3 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Analytics-driven strategies to maximize reach and impact across platforms</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="max-w-4xl mx-auto mt-20 mb-16 text-center">
+      <h2 class="text-3xl font-['Orbitron'] font-bold text-white mb-6">Ready to Transform Your Digital Presence?</h2>
+      <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+        Let's discuss how ISH Connect can help you achieve your goals with our tailored technology solutions.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <button class="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-medium rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all transform hover:scale-105">
+          Get in Touch
+        </button>
+        <button class="px-8 py-3 border border-cyan-400 text-cyan-400 font-medium rounded-lg hover:bg-cyan-400 hover:bg-opacity-10 transition-all">
+          Learn More
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="py-12 bg-gray-900 bg-opacity-50">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <div class="flex items-center space-x-3">
+            <div class="icon-container">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <span class="text-xl font-['Orbitron'] font-bold gradient-text">ISH CONNECT</span>
+          </div>
+          <p class="text-gray-400 mt-4 max-w-xs">
+            Bridging technology and education to create impactful digital solutions.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-lg font-['Orbitron'] font-semibold text-white mb-4">Services</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">Digital Learning</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">Consulting</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">Product Engineering</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-['Orbitron'] font-semibold text-white mb-4">Company</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">About Us</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">Our Work</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-['Orbitron'] font-semibold text-white mb-4">Connect</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">
+                <i class="fab fa-linkedin text-xl"></i>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">
+                <i class="fab fa-github text-xl"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+        <p>© 2023 ISH Connect. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple animation for circuit paths
+    document.addEventListener('DOMContentLoaded', function() {
+      const paths = document.querySelectorAll('.circuit-path');
+      paths.forEach((path, index) => {
+        const length = path.getTotalLength();
+        path.style.strokeDasharray = length;
+        path.style.strokeDashoffset = length;
+        path.style.animation = `dash ${10 + index * 2}s linear forwards infinite`;
+      });
+    });
+  </script>
+</body>
+</html>
